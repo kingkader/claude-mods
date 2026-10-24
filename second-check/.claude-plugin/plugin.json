@@ -1,0 +1,47 @@
+{
+  "name": "second-check",
+  "version": "0.1.0",
+  "description": "A second AI watches over Claude: after each answer it says what was missed ('You should know'), and before anything is published or deployed it checks it against your rules and can stop it. /check runs a full review on demand.",
+  "author": { "name": "Abdulqadir (Sincerity Ruqyah Centre)" },
+  "license": "MIT",
+  "homepage": "https://github.com/kingkader/claude-mods",
+  "userConfig": {
+    "reviewAnswers": {
+      "type": "boolean",
+      "title": "Review every answer",
+      "description": "After each answer, a quick second AI lists anything important that was missed (shown under the answer).",
+      "default": true
+    },
+    "reviewModel": {
+      "type": "string",
+      "title": "Model for the answer review",
+      "description": "A fast, low-cost model is enough.",
+      "default": "haiku"
+    },
+    "guardPublishing": {
+      "type": "boolean",
+      "title": "Check before publishing or deploying",
+      "description": "Before a command that publishes or deploys runs, a second AI checks it against your rules and can stop it.",
+      "default": true
+    },
+    "publishPattern": {
+      "type": "string",
+      "title": "What counts as publishing (regular expression)",
+      "description": "Commands matching this are checked first.",
+      "default": "sr_blog\\.py\\s+publish|fix_old_posts\\.py|srwp\\.(update|restore)|rankmath/v1/update|wp-json/wp/v2/(posts|pages|media)|git\\s+push|gh\\s+repo\\s+create|wrangler\\s+(deploy|pages\\s+deploy)|vercel\\s+.*--prod"
+    },
+    "rules": {
+      "type": "string",
+      "title": "Your rules",
+      "description": "What published content must follow. One rule per line.",
+      "default": "Quran and sahih hadith only, with exact references; no weak or made-up narrations.\nMainstream Sunni only.\nNo health or cure promises and no medical advice; where health comes up, point to a GP, NHS 111 or 999.\nNo invented facts, statistics, reviews, testimonials or stories.\nPrices, times and contact details must match what the owner stated.\nNo passwords, API keys or tokens in anything published or pushed.\nCode is deployed only after it was tested in this session and the tests passed."
+    },
+    "ifCheckFails": {
+      "type": "string",
+      "title": "If the check itself cannot run",
+      "description": "allow = go ahead and show a notice; block = stop until it can run.",
+      "default": "allow",
+      "options": ["allow", "block"]
+    }
+  }
+}

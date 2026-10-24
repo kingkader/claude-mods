@@ -1,0 +1,24 @@
+{
+  "name": "auto-handoff",
+  "version": "0.1.0",
+  "description": "Before a long chat is squeezed (compacted), writes a full handoff note and keeps it word for word, so nothing important is lost. /handoff makes one on demand.",
+  "author": {
+    "name": "Abdulqadir (Sincerity Ruqyah Centre)"
+  },
+  "userConfig": {
+    "folder": {
+      "type": "string",
+      "title": "Handoff folder",
+      "description": "Where handoff notes are saved, relative to the chat's working folder.",
+      "default": ".claude/handoffs"
+    },
+    "warnAtPercent": {
+      "type": "number",
+      "title": "Warn when the chat is this full (%)",
+      "description": "Shows one short notice when the chat's memory passes this level.",
+      "default": 80
+    }
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/kingkader/claude-mods"
+}

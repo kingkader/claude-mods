@@ -1,0 +1,19 @@
+{
+  "name": "claude-mods",
+  "owner": {
+    "name": "kingkader"
+  },
+  "plugins": [
+    {
+      "name": "auto-handoff",
+      "source": "./auto-handoff",
+      "description": "Before a long chat is squeezed (compacted), writes a full handoff note and keeps it word for word. /handoff makes one on demand."
+    },
+    {
+      "name": "second-check",
+      "source": "./second-check",
+      "description": "A second AI watches over Claude: flags what an answer missed, and checks anything published or deployed against your rules first. /check reviews the whole chat."
+    }
+  ],
+  "description": "Two Claude mods: auto-handoff (nothing lost when a long chat is squeezed) and second-check (a second AI that flags misses and checks publishes against your rules)."
+}
